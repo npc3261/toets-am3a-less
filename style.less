@@ -1,0 +1,91 @@
+*
+{
+    font-family: Verdana;
+    padding: 0px;
+    margin: 0px;    
+}
+
+a
+{
+    text-decoration: none;
+}
+
+
+@color1: rgb(255, 127, 20);
+@color2: rgb(255, 200, 20);
+@factor1: 1.1;
+@factor2: 1.8;
+
+//Dit is een geparametriseerde mixin met guard
+.lessIntro(@factor, @backgroundColor, @divWidth: 400px, @placeHolder: auto, @passThrough: false) 
+    when ((@factor > 1) and ( @placeHolder = auto)) , (@passThrough = true)
+{
+    border: @factor * 1em solid darken(@backgroundColor, 20%);
+    width: @factor * @divWidth;
+    padding: @factor * 1em;
+    background-color: @backgroundColor;
+    color: lighten(@backgroundColor, 40%);
+    margin: 3em @placeHolder;
+    font-size: @factor * 1.5em;
+    border-radius: @factor * 1.5em;    
+}
+
+#div1
+{
+    .lessIntro(@factor1, @color1, 300px, 100px, true);
+}
+
+#div2
+{
+    .lessIntro(@factor2, @color2, 500px);
+}
+
+// Maak een nieuwe pagina die 2 verschillende tabellen laat zien met ieder 5 records. De opmaak van de tabellen moet
+// worden geregeld door dezelfde geparametriseerde LESS mixin met guard. 
+.tblDefault(@margin, @border, @color, @padding, @borderCollapse: collapse)
+{ 
+        border-collapse: @borderCollapse;
+        margin: 2em auto;
+        
+        tr
+        {
+            &:nth-child(2n)
+            {
+                background-color: lighten(@color, 40%);
+            }
+            
+            &:nth-child(2n+1)
+            {
+                background-color: lighten(@color, 30%);
+            }
+        }
+         
+        td
+        {
+            
+            border: @border @color; 
+            margin: @margin;
+            padding: @padding;
+            color: lighten(@color, 50%);
+            font-weight:900;
+        }
+        
+        th
+        {
+            border: @border @color; 
+            margin: @margin;
+            padding: @padding;
+            background-color: darken(@color, 10%);
+            color: lighten(@color, 60%);
+        }            
+}
+
+#tbl1
+{
+    .tblDefault(2em, 1px solid, rgb(255, 7, 20), 1em, collapse) ;
+}
+
+#tbl2
+{
+    .tblDefault(1em, 1px solid,  blue, 1em, collapse) ;
+}

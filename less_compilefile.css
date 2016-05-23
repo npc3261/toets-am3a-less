@@ -1,0 +1,50 @@
+#tbl1 {
+  border-collapse: collapse;
+  margin: 2em auto;
+  font-family: Verdana;
+}
+#tbl1 tr:nth-child(2n) {
+  background-color: #f3f3d8;
+}
+#tbl1 tr:nth-child(2n+1) {
+  background-color: #e7e7b1;
+}
+#tbl1 td {
+  border: 1px solid #c2c23d;
+  margin: 2em;
+  padding: 1em;
+  color: #5a0af0;
+  font-weight: 900;
+}
+#tbl1 th {
+  border: 1px solid #c2c23d;
+  margin: 2em;
+  padding: 1em;
+  background-color: #9b9b31;
+  color: #f30724;
+}
+#tbl2 {
+  border-collapse: collapse;
+  margin: 2em auto;
+  font-family: Verdana;
+}
+#tbl2 tr:nth-child(2n) {
+  background-color: #ffffff;
+}
+#tbl2 tr:nth-child(2n+1) {
+  background-color: #ffffff;
+}
+#tbl2 td {
+  border: 1px solid #ffa2ff;
+  margin: 1em;
+  padding: 1em;
+  color: #5a0af0;
+  font-weight: 900;
+}
+#tbl2 th {
+  border: 1px solid #ffa2ff;
+  margin: 1em;
+  padding: 1em;
+  background-color: #ff6fff;
+  color: #f30724;
+}
